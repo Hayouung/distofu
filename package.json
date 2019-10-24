@@ -1,12 +1,12 @@
 {
   "name": "potato-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "bot for discord",
   "main": "dist/index.js",
   "scripts": {
     "start": "rimraf dist && tsc && node -r dotenv/config dist/index.js"
   },
-  "author": "",
+  "author": "hayouung",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^12.11.5",
