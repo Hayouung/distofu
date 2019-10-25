@@ -1,6 +1,7 @@
 import { Message, Client } from "discord.js";
 import { hello } from "./general/hello";
 import { isNameMatches } from "../command-utils";
+import { assertType, assertNotNull } from "../../asserts";
 
 const STANDARD_COMMANDS: StandardCommand[] = [hello];
 
@@ -23,15 +24,13 @@ export function getStandardCommands(): StandardCommand[] {
 
 /**
  * Adds a standard command to the implemented standard commands array.
- * Command name must be unique to not clash with other commands on invocation
- * but can be the same as the aliases of other commands as the command handler
- * will search for a matching name first then matching aliases.
+ * Command name must be unique but can be the same as the aliases of other commands.
  * @param command the command to add
  * @returns true if added, false otherwise
  */
 export function addStandardCommand(command: StandardCommand): boolean {
     try {
-        assertCommand(command);
+        assertStandardCommand(command);
         STANDARD_COMMANDS.push(command);
         return true;
     } catch (e) {
@@ -55,30 +54,20 @@ export function deleteStandardCommand(name: string): boolean {
     }
 }
 
-function assertCommand(commandToAdd: StandardCommand): void {
-    if (commandToAdd == null) {
-        throw new Error("command cannot be null or undefined");
-    }
-
-    if (typeof commandToAdd !== "object") {
-        throw new Error("command must be an object");
-    }
+function assertStandardCommand(commandToAdd: StandardCommand): void {
+    assertNotNull(commandToAdd, "command cannot be null or undefined");
+    assertType(commandToAdd, "object", "command must be an object");
 
     const { name, perform, aliases } = commandToAdd;
 
-    if (typeof name !== "string") {
-        throw new Error("name must be a string");
-    }
-
-    if (typeof perform !== "function") {
-        throw new Error("perform must be a function");
-    }
+    assertType(name, "string", "name must be a string");
+    assertType(perform, "function", "perform must be a function");
 
     if (aliases && !Array.isArray(aliases)) {
         throw new Error("aliases must be an array");
     }
 
     if (getStandardCommands().some(command => isNameMatches(command, name))) {
-        throw new Error(`command <${name}> already exists`);
+        throw new Error(`custom command <${name}> already exists`);
     }
 }
