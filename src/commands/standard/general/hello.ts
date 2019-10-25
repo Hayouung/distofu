@@ -1,4 +1,4 @@
-import { StandardCommand } from "../../standard-command";
+import { StandardCommand } from "../standard-command";
 import { Message } from "discord.js";
 
 export const hello: StandardCommand = {

@@ -1,6 +1,6 @@
 import { Message, Client } from "discord.js";
-import { hello } from "./standard/general/hello";
-import { isNameMatches } from "./command-utils";
+import { hello } from "./general/hello";
+import { isNameMatches } from "../command-utils";
 
 const STANDARD_COMMANDS: StandardCommand[] = [hello];
 

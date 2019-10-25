@@ -1,7 +1,7 @@
 import { Message, Client } from "discord.js";
 import { OPTIONS } from "../options";
-import { standardCommandHandler } from "../commands/standard-command-handler";
-import { customCommandHandler } from "../commands/custom-command-handler";
+import { standardCommandHandler } from "../commands/standard/standard-command-handler";
+import { customCommandHandler } from "../commands/custom/custom-command-handler";
 
 export function onMessage(message: Message, client: Client): void {
     if (isStandardCommand(message)) {

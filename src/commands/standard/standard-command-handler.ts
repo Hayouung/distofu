@@ -1,7 +1,7 @@
 import { Message, Client } from "discord.js";
-import { OPTIONS } from "../options";
+import { OPTIONS } from "../../options";
 import { getStandardCommands, StandardCommand } from "./standard-command";
-import { isNameMatches, isAliasesMatches } from "./command-utils";
+import { isNameMatches, isAliasesMatches } from "../command-utils";
 
 export function standardCommandHandler(message: Message, client: Client): void {
     const found = findCommand(extractCommandName(message));

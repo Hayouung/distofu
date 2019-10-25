@@ -1,4 +1,4 @@
-import { StandardCommand } from "./standard-command";
+import { StandardCommand } from "./standard/standard-command";
 
 export function isNameMatches(command: StandardCommand, commandName: string): boolean {
     return command.name === commandName;
