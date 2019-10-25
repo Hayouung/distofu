@@ -7,7 +7,7 @@
         "dist"
     ],
     "scripts": {
-        "start": "rimraf dist && tsc && node -r dotenv/config dist/start.js",
+        "start": "rimraf dist && tsc && node -r dotenv/config start.js",
         "build": "rimraf dist && tsc",
         "lint": "eslint src/**",
         "lint-fix": "eslint src/** --fix"
