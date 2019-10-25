@@ -3,6 +3,9 @@ import { onMessage } from "./events/on-message";
 import { onReady } from "./events/on-ready";
 import { onError } from "./events/on-error";
 
+/**
+ * The discord.js client object.
+ */
 export const client = new Client();
 
 client.on("message", message => onMessage(message, client));

@@ -1,5 +1,5 @@
 import { Message, Client } from "discord.js";
-import { OPTIONS } from "../consts";
+import { OPTIONS } from "../options";
 import { standardCommandHandler } from "../commands/standard-command-handler";
 import { customCommandHandler } from "../commands/custom-command-handler";
 

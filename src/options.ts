@@ -1,7 +1,6 @@
-export const BOT_ID = "";
-
-export const OWNER_ID = "";
-
+/**
+ * Object for configuring bot behaviour.
+ */
 export const OPTIONS = {
     prefix: "--",
     mute: false

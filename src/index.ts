@@ -1,5 +1,5 @@
 export { client } from "./client";
-export { BOT_ID, OPTIONS, OWNER_ID } from "./consts";
+export { OPTIONS } from "./options";
 export { CustomCommand } from "./commands/custom-command";
 export {
     StandardCommand,
