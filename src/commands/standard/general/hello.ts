@@ -1,9 +1,9 @@
 import { StandardCommand } from "../../standard-command";
-import { Client, Message } from "discord.js";
+import { Message } from "discord.js";
 
 export const hello: StandardCommand = {
     name: "hello",
-    perform(message: Message, client: Client) {
+    perform(message: Message) {
         message.channel.send("hello");
     }
 };

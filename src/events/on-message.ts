@@ -13,5 +13,5 @@ export function onMessage(message: Message, client: Client): void {
 
 function isStandardCommand(message: Message): boolean {
     const trimmed = message.content.trim();
-    return trimmed.indexOf(OPTIONS.prefix) === 0;
+    return trimmed.startsWith(OPTIONS.prefix);
 }

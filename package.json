@@ -8,13 +8,19 @@
     ],
     "scripts": {
         "start": "rimraf dist && tsc && node -r dotenv/config dist/start.js",
-        "build": "rimraf dist && tsc"
+        "build": "rimraf dist && tsc",
+        "lint": "eslint src/**",
+        "lint-fix": "eslint src/** --fix"
     },
     "author": "hayouung",
     "license": "ISC",
     "devDependencies": {
         "@types/node": "^12.11.5",
+        "@typescript-eslint/eslint-plugin": "^2.5.0",
+        "@typescript-eslint/parser": "^2.5.0",
         "dotenv": "^8.2.0",
+        "eslint": "^6.5.1",
+        "eslint-config-google": "^0.14.0",
         "rimraf": "^3.0.0",
         "typescript": "^3.6.4"
     },
