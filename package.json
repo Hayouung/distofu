@@ -1,20 +1,24 @@
 {
-  "name": "potato-bot",
-  "version": "1.0.0",
-  "description": "bot for discord",
-  "main": "dist/index.js",
-  "scripts": {
-    "start": "rimraf dist && tsc && node -r dotenv/config dist/index.js"
-  },
-  "author": "hayouung",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^12.11.5",
-    "dotenv": "^8.2.0",
-    "rimraf": "^3.0.0",
-    "typescript": "^3.6.4"
-  },
-  "dependencies": {
-    "discord.js": "^11.5.1"
-  }
+    "name": "potahto-bot",
+    "version": "1.0.0",
+    "description": "bot for discord",
+    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "start": "rimraf dist && tsc && node -r dotenv/config dist/start.js",
+        "build": "rimraf dist && tsc"
+    },
+    "author": "hayouung",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^12.11.5",
+        "dotenv": "^8.2.0",
+        "rimraf": "^3.0.0",
+        "typescript": "^3.6.4"
+    },
+    "dependencies": {
+        "discord.js": "^11.5.1"
+    }
 }

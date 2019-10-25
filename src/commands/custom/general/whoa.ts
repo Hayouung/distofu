@@ -1,4 +1,4 @@
-import { CustomCommand } from "../custom-command";
+import { CustomCommand } from "../../custom-command";
 import { Message, Client } from "discord.js";
 
 export const whoa: CustomCommand = {

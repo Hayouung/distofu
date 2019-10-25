@@ -1,12 +1,9 @@
-import { Client } from "discord.js";
-import { onMessage } from "./events/on-message";
-import { onReady } from "./events/on-ready";
-import { onError } from "./events/on-error";
-
-const client = new Client();
-
-client.on("message", message => onMessage(message, client));
-client.on("ready", () => onReady());
-client.on("error", error => onError(error))
-
-client.login(process.env.DISCORD_TOKEN);
+export { client } from "./client";
+export { BOT_ID, OPTIONS, OWNER_ID } from "./consts";
+export { CustomCommand } from "./commands/custom-command";
+export {
+    StandardCommand,
+    getStandardCommands,
+    addStandardCommand,
+    deleteStandardCommand
+} from "./commands/standard-command";
