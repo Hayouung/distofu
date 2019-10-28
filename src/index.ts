@@ -1,6 +1,11 @@
 export { client } from "./client";
 export { OPTIONS } from "./options";
-export { CustomCommand } from "./commands/custom/custom-command";
+export {
+    CustomCommand,
+    getCustomCommands,
+    addCustomCommand,
+    deleteCustomCommand
+} from "./commands/custom/custom-command";
 export {
     StandardCommand,
     getStandardCommands,
