@@ -1,6 +1,7 @@
 import { StandardCommand } from "./standard/standard-command";
+import { CustomCommand } from "./custom/custom-command";
 
-export function isNameMatches(command: StandardCommand, commandName: string): boolean {
+export function isNameMatches(command: StandardCommand | CustomCommand, commandName: string): boolean {
     return command.name === commandName;
 }
 

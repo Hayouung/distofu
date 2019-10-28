@@ -3,6 +3,9 @@ import { hello } from "./general/hello";
 import { isNameMatches } from "../command-utils";
 import { assertType, assertNotNull } from "../../asserts";
 
+/**
+ * Array of implemented standard commands.
+ */
 const STANDARD_COMMANDS: StandardCommand[] = [hello];
 
 /**

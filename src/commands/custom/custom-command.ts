@@ -4,6 +4,11 @@ import { isNameMatches } from "../command-utils";
 import { assertNotNull, assertType } from "../../asserts";
 
 /**
+ * Array of implemented custom commands.
+ */
+const CUSTOM_COMMANDS: CustomCommand[] = [whoa];
+
+/**
  * Interface for all custom commands to extend/have properties of.
  */
 export interface CustomCommand {
@@ -11,8 +16,6 @@ export interface CustomCommand {
     perform(message: Message, client: Client): void;
     condition(message: Message, client: Client): boolean;
 }
-
-const CUSTOM_COMMANDS: CustomCommand[] = [whoa];
 
 /**
  * Gets a copy of the implemented custom commands array.
