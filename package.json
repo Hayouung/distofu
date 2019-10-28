@@ -11,16 +11,21 @@
         "build": "tsc",
         "lint": "eslint src/**",
         "lint-fix": "eslint src/** --fix",
-        "clean": "tsc --build --clean"
+        "clean": "tsc --build --clean",
+        "test": "ts-node jasmine.config.js"
     },
     "author": "hayouung",
     "license": "ISC",
     "devDependencies": {
+        "@types/jasmine": "^3.4.4",
         "@types/node": "^12.11.5",
         "@typescript-eslint/eslint-plugin": "^2.5.0",
         "@typescript-eslint/parser": "^2.5.0",
         "dotenv": "^8.2.0",
         "eslint": "^6.5.1",
+        "jasmine": "^3.5.0",
+        "jasmine-console-reporter": "^3.1.0",
+        "ts-node": "^8.4.1",
         "typescript": "^3.6.4"
     },
     "dependencies": {
