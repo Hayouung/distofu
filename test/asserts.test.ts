@@ -1,6 +1,6 @@
 import { assertType, assertNotNull } from "../src/asserts";
 
-describe("#asserts", () => {
+describe("assert functions", () => {
     describe("assertType()", () => {
         it("should not throw error if type assertion passes", () => {
             expect(() => assertType("hello", "string", "message")).not.toThrow();
