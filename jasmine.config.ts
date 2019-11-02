@@ -21,10 +21,10 @@ const config = {
     stopSpecOnExpectationFailure: false
 };
 
-const jasmine = new Jasmine();
+const jas = new Jasmine();
 
-jasmine.loadConfig(config);
-jasmine.jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
-jasmine.env.clearReporters();
-jasmine.addReporter(reporter);
-jasmine.execute();
+jas.loadConfig(config);
+jas.jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
+jas.env.clearReporters();
+jas.addReporter(reporter);
+jas.execute();
