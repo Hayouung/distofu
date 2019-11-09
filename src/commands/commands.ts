@@ -1,7 +1,3 @@
-type Command = {
-    name: string;
-};
-
 export class Commands<T extends Command> {
     private readonly COMMANDS: T[];
 
@@ -46,6 +42,10 @@ export class Commands<T extends Command> {
             return false;
         }
     }
+}
+
+interface Command {
+    name: string;
 }
 
 function isUnique(commands: Command[], commandToAdd: Command): boolean {
