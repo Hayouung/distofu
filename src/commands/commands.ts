@@ -24,11 +24,10 @@ export class Commands<T extends Command> {
      * @returns true if added, false otherwise
      */
     addCommand(command: T): boolean {
-        try {
-            assertUnique(this.COMMANDS, command);
+        if (isUnique(this.COMMANDS, command)) {
             this.COMMANDS.push(command);
             return true;
-        } catch {
+        } else {
             return false;
         }
     }
@@ -49,8 +48,6 @@ export class Commands<T extends Command> {
     }
 }
 
-function assertUnique(commands: Command[], commandToAdd: Command): void {
-    if (commands.some(command => command.name === commandToAdd.name)) {
-        throw new Error(`command <${name}> already exists`);
-    }
+function isUnique(commands: Command[], commandToAdd: Command): boolean {
+    return !commands.some(command => command.name === commandToAdd.name);
 }
