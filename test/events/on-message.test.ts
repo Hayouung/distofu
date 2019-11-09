@@ -1,6 +1,6 @@
 import { onMessage } from "../../src/events/on-message";
-import * as stdCmdHandlerObj from "../../src/commands/standard/standard-command-handler";
-import * as customCmdHandlerObj from "../../src/commands/custom/custom-command-handler";
+import * as stdCmdObj from "../../src/commands/standard/standard-command";
+import * as custCmdObj from "../../src/commands/custom/custom-command";
 import { Message, Client } from "discord.js";
 
 describe("on-message event", () => {
@@ -8,8 +8,8 @@ describe("on-message event", () => {
     let customCmdHandlerSpy: jasmine.Spy;
 
     beforeEach(() => {
-        stdCmdHandlerSpy = spyOn(stdCmdHandlerObj, "standardCommandHandler");
-        customCmdHandlerSpy = spyOn(customCmdHandlerObj, "customCommandHandler");
+        stdCmdHandlerSpy = spyOn(stdCmdObj, "handleStandardCommand");
+        customCmdHandlerSpy = spyOn(custCmdObj, "handleCustomCommand");
     });
 
     it("should call standard command handler if message starts with prefix", () => {

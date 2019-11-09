@@ -12,3 +12,11 @@ export interface CustomCommand {
 }
 
 export const customCommands = new Commands<CustomCommand>([whoa]);
+
+export function handleCustomCommand(message: Message, client: Client): void {
+    const found = customCommands.getCommands().find(command => command.condition(message, client));
+
+    if (found) {
+        found.perform(message, client);
+    }
+}

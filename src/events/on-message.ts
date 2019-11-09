@@ -1,13 +1,13 @@
 import { Message, Client } from "discord.js";
 import { OPTIONS } from "../options";
-import { standardCommandHandler } from "../commands/standard/standard-command-handler";
-import { customCommandHandler } from "../commands/custom/custom-command-handler";
+import { handleStandardCommand } from "../commands/standard/standard-command";
+import { handleCustomCommand } from "../commands/custom/custom-command";
 
 export function onMessage(message: Message, client: Client): void {
     if (isStandardCommand(message)) {
-        standardCommandHandler(message, client);
+        handleStandardCommand(message, client);
     } else {
-        customCommandHandler(message, client);
+        handleCustomCommand(message, client);
     }
 }
 
