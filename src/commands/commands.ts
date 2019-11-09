@@ -1,8 +1,8 @@
 export class Commands<T extends Command> {
-    private readonly COMMANDS: T[];
+    private readonly commands: T[];
 
     constructor(initCommands: T[]) {
-        this.COMMANDS = initCommands;
+        this.commands = initCommands;
     }
 
     /**
@@ -10,7 +10,7 @@ export class Commands<T extends Command> {
      * @returns the copied commands - mutating this will not affect implemented commands
      */
     getCommands(): T[] {
-        return [...this.COMMANDS];
+        return [...this.commands];
     }
 
     /**
@@ -20,8 +20,8 @@ export class Commands<T extends Command> {
      * @returns true if added, false otherwise
      */
     addCommand(command: T): boolean {
-        if (isUnique(this.COMMANDS, command)) {
-            this.COMMANDS.push(command);
+        if (isUnique(this.commands, command)) {
+            this.commands.push(command);
             return true;
         } else {
             return false;
@@ -34,9 +34,9 @@ export class Commands<T extends Command> {
      * @returns true if deleted, false otherwise
      */
     deleteCommand(name: string): boolean {
-        const found = this.COMMANDS.findIndex(command => command.name === name);
+        const found = this.commands.findIndex(command => command.name === name);
         if (found > -1) {
-            this.COMMANDS.splice(found, 1);
+            this.commands.splice(found, 1);
             return true;
         } else {
             return false;
