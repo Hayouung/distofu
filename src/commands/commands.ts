@@ -1,8 +1,13 @@
 export class Commands<T extends Command> {
     private readonly commands: T[];
 
-    constructor(initCommands: T[]) {
-        this.commands = initCommands;
+    /**
+     * Creates new instance of Commands with supplied commands array
+     * or an empty array if none supplied.
+     * @param initCommands the supplied commands array
+     */
+    constructor(initCommands?: T[]) {
+        this.commands = initCommands || [];
     }
 
     /**
@@ -44,10 +49,10 @@ export class Commands<T extends Command> {
     }
 }
 
-interface Command {
-    name: string;
-}
-
 function isUnique(commands: Command[], commandToAdd: Command): boolean {
     return !commands.some(command => command.name === commandToAdd.name);
+}
+
+interface Command {
+    name: string;
 }
