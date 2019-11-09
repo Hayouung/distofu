@@ -1,7 +1,6 @@
 import { Message, Client } from "discord.js";
 import { OPTIONS } from "../../options";
-import { getStandardCommands, StandardCommand } from "./standard-command";
-import { isNameMatches, isAliasesMatches } from "../command-utils";
+import { standardCommands, StandardCommand } from "./standard-command";
 
 export function standardCommandHandler(message: Message, client: Client): void {
     const found = findCommand(extractCommandName(message));
@@ -19,7 +18,11 @@ function extractCommandName(message: Message): string {
 }
 
 function findCommand(commandName: string): StandardCommand | undefined {
-    const commands = getStandardCommands();
-    const foundByName = commands.find(command => isNameMatches(command, commandName));
+    const commands = standardCommands.getCommands();
+    const foundByName = commands.find(command => command.name === commandName);
     return foundByName || commands.find(command => isAliasesMatches(command, commandName));
+}
+
+function isAliasesMatches(command: StandardCommand, commandName: string): boolean {
+    return (command.aliases || []).includes(commandName);
 }
