@@ -9,7 +9,7 @@ import { CONFIG } from "../../config";
 export interface StandardCommand {
     name: string;
     aliases?: string[];
-    perform(message: Message, client: Client): void;
+    perform(message?: Message, client?: Client): void;
 }
 
 export const standardCommands = new Commands<StandardCommand>([hello]);
