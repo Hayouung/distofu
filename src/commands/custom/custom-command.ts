@@ -7,8 +7,8 @@ import { Commands } from "../commands";
  */
 export interface CustomCommand {
     name: string;
-    perform(message: Message, client: Client): void;
-    condition(message: Message, client: Client): boolean;
+    perform(message?: Message, client?: Client): void;
+    condition(message?: Message, client?: Client): boolean;
 }
 
 export const customCommands = new Commands<CustomCommand>([whoa]);

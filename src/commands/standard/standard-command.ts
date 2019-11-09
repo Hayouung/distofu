@@ -1,7 +1,7 @@
 import { Message, Client } from "discord.js";
 import { hello } from "./general/hello";
 import { Commands } from "../commands";
-import { OPTIONS } from "../../options";
+import { CONFIG } from "../../config";
 
 /**
  * Interface for all standard commands to extend/have properties of.
@@ -25,7 +25,7 @@ function extractCommandName(message: Message): string {
     return message.content
         .trim()
         .toLowerCase()
-        .substring(OPTIONS.prefix.length)
+        .substring(CONFIG.prefix.length)
         .split(" ")[0];
 }
 
