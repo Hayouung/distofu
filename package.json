@@ -9,7 +9,7 @@
     "scripts": {
         "start": "tsc && ts-node -r dotenv/config start.ts",
         "build": "tsc",
-        "lint": "eslint src/**",
+        "lint": "eslint src/**.ts",
         "lint-fix": "eslint src/** --fix",
         "clean": "tsc --build --clean",
         "test": "ts-node jasmine.config.ts"
