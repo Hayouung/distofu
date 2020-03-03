@@ -1,5 +1,5 @@
 {
-    "name": "potahto-bot",
+    "name": "tofu-bot",
     "version": "1.0.0",
     "description": "bot for discord",
     "main": "dist/index.js",
