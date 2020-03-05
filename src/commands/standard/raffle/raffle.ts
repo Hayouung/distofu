@@ -5,18 +5,18 @@ import { addEntry } from "../../../dao/raffle.dao";
 const name = "raffle";
 
 function perform(message: Message): void {
-    addEntry({
-        number: generateRandomNumber(),
-        serverId: message.guild.id,
-        userId: message.author.id
-    });
+  addEntry({
+    number: generateRandomNumber(),
+    serverId: message.guild?.id,
+    userId: message.author.id
+  });
 }
 
 export const raffle: StandardCommand = {
-    name,
-    perform
+  name,
+  perform
 };
 
 function generateRandomNumber(): number {
-    return Math.floor(Math.random() * 100000);
+  return Math.floor(Math.random() * 100000);
 }

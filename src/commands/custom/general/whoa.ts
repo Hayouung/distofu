@@ -5,15 +5,15 @@ import { CONFIG } from "../../../config";
 const name = "whoa";
 
 function condition(message: Message): boolean {
-    return message.author.id === CONFIG.ownerId && message.content.includes("WHOA!!");
+  return message.author.id === CONFIG.ownerId && message.content.includes("WHOA!!");
 }
 
 function perform(message: Message): void {
-    message.channel.send("whoa");
+  message.channel.send("whoa");
 }
 
 export const whoa: CustomCommand = {
-    name,
-    condition,
-    perform
+  name,
+  condition,
+  perform
 };

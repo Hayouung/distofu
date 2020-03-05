@@ -1,3 +1,3 @@
 export function onReady(): void {
-    console.log("ready!");
+  console.log("ready!");
 }
