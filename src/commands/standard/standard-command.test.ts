@@ -1,8 +1,4 @@
-import {
-  handleStandardCommand,
-  standardCommands,
-  StandardCommand
-} from "../../../src/commands/standard/standard-command";
+import { handleStandardCommand, standardCommands, StandardCommand } from "./standard-command";
 import { Message, Client } from "discord.js";
 
 describe("standard command", () => {

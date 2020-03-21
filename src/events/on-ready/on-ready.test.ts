@@ -1,4 +1,4 @@
-import { onReady } from "../../src/events/on-ready";
+import { onReady } from "./on-ready";
 
 describe("on-error event", () => {
   let consoleSpy: jasmine.Spy;

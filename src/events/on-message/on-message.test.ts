@@ -1,6 +1,6 @@
-import { onMessage } from "../../src/events/on-message";
-import * as stdCmdObj from "../../src/commands/standard/standard-command";
-import * as custCmdObj from "../../src/commands/custom/custom-command";
+import { onMessage } from "./on-message";
+import * as stdCmdObj from "../../commands/standard/standard-command";
+import * as custCmdObj from "../../commands/custom/custom-command";
 import { Message, Client } from "discord.js";
 
 describe("on-message event", () => {

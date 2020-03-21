@@ -1,8 +1,4 @@
-import {
-  handleCustomCommand,
-  customCommands,
-  CustomCommand
-} from "../../../src/commands/custom/custom-command";
+import { handleCustomCommand, customCommands, CustomCommand } from "./custom-command";
 import { Message, Client } from "discord.js";
 
 describe("custom command", () => {

@@ -1,4 +1,4 @@
-import { Commands } from "../../src/commands/commands";
+import { Commands } from "./commands";
 
 describe("Commands class", () => {
   const initCommand = { name: "hi", test: "test" };

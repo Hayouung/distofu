@@ -1,4 +1,4 @@
-import { hello } from "../../../../src/commands/standard/general/hello";
+import { hello } from "./hello";
 import { Message } from "discord.js";
 
 describe("standard command hello", () => {

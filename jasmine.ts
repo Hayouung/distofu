@@ -5,7 +5,7 @@ const jas = new Jasmine({});
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
 
 jas.loadConfig({
-  spec_dir: "test",
+  spec_dir: "src",
   spec_files: ["**/*test.ts"],
   random: false,
   seed: null,

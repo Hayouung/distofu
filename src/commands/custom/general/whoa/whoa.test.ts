@@ -1,6 +1,6 @@
-import { whoa } from "../../../../src/commands/custom/general/whoa";
+import { whoa } from "./whoa";
 import { Message } from "discord.js";
-import { CONFIG } from "../../../../src/config";
+import { CONFIG } from "../../../../config";
 
 describe("custom command whoa", () => {
   const sendSpy = jasmine.createSpy("message.channel.send");

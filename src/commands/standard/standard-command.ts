@@ -1,7 +1,7 @@
 import { Message, Client } from "discord.js";
-import { hello } from "./general/hello";
 import { Commands } from "../commands";
 import { CONFIG } from "../../config";
+import { GENERAL_STANDARD_COMMANDS } from "./general/general";
 
 /**
  * Interface for all standard commands to extend/have properties of.
@@ -12,7 +12,7 @@ export interface StandardCommand {
   perform(message?: Message, client?: Client): void;
 }
 
-export const standardCommands = new Commands<StandardCommand>([hello]);
+export const standardCommands = new Commands<StandardCommand>(GENERAL_STANDARD_COMMANDS);
 
 export function handleStandardCommand(message: Message, client: Client): void {
   const found = findCommand(extractCommandName(message));
