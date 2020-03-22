@@ -19,11 +19,11 @@ describe("custom command whoa", () => {
   });
 
   it("should match condition if message author is owner and has 'WHOA!!' in content", () => {
-    expect(whoa.condition(message)).toBe(true);
+    expect(whoa.condition(message, {} as any)).toBe(true);
   });
 
   it("should send 'whoa' to message channel on perform", () => {
-    whoa.perform(message);
+    whoa.perform(message, {} as any);
     expect(sendSpy).toHaveBeenCalledWith("whoa");
   });
 });

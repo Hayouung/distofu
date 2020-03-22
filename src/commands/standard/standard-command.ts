@@ -9,7 +9,7 @@ import { GENERAL_STANDARD_COMMANDS } from "./general/general";
 export interface StandardCommand {
   name: string;
   aliases?: string[];
-  perform(message?: Message, client?: Client): void;
+  perform(message: Message, client: Client): void;
 }
 
 export const standardCommands = new Commands<StandardCommand>(GENERAL_STANDARD_COMMANDS);

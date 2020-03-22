@@ -14,7 +14,7 @@ describe("standard command hello", () => {
   } as Message;
 
   it("should perform", () => {
-    hello.perform(message);
+    hello.perform(message, {} as any);
     expect(sendSpy).toHaveBeenCalledWith("hello");
   });
 });
