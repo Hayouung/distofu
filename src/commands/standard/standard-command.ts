@@ -12,7 +12,7 @@ export interface StandardCommand {
   perform(message: Message, client: Client): void;
 }
 
-export const standardCommands = new Commands<StandardCommand>(GENERAL_STANDARD_COMMANDS);
+export const standardCommands = new Commands<StandardCommand>([...GENERAL_STANDARD_COMMANDS]);
 
 export function handleStandardCommand(message: Message, client: Client): void {
   const found = findCommand(extractCommandName(message));

@@ -11,7 +11,7 @@ export interface CustomCommand {
   condition(message: Message, client: Client): boolean;
 }
 
-export const customCommands = new Commands<CustomCommand>(GENERAL_CUSTOM_COMMANDS);
+export const customCommands = new Commands<CustomCommand>([...GENERAL_CUSTOM_COMMANDS]);
 
 export function handleCustomCommand(message: Message, client: Client): void {
   const found = customCommands.getCommands().find(command => command.condition(message, client));
