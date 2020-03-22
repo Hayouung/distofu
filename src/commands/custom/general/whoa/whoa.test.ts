@@ -3,14 +3,13 @@ import { Message } from "discord.js";
 import { CONFIG } from "../../../../config";
 
 describe("custom command whoa", () => {
-  const sendSpy = jasmine.createSpy("message.channel.send");
   const message = {
     content: "WHOA!!",
     author: {
       id: "123"
     },
     channel: {
-      send: (message: string) => sendSpy(message)
+      send: jest.fn() as any
     }
   } as Message;
 
@@ -24,6 +23,6 @@ describe("custom command whoa", () => {
 
   it("should send 'whoa' to message channel on perform", () => {
     whoa.perform(message, {} as any);
-    expect(sendSpy).toHaveBeenCalledWith("whoa");
+    expect(message.channel.send).toHaveBeenCalledWith("whoa");
   });
 });

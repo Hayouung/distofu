@@ -1,24 +1,7 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "noUnusedLocals": true,
-    "noImplicitReturns": true,
-    "esModuleInterop": true,
-    "inlineSourceMap": true,
-    "declaration": true,
-    "experimentalDecorators": true
-  },
+  "extends": "./tsconfig/tsconfig.base.json",
+  "outDir": "./dist",
+  "rootDir": "./src",
   "include": ["src/**/*.ts"],
   "exclude": ["src/**/*.test.ts"]
 }
