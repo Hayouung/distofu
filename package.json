@@ -12,21 +12,21 @@
     "lint": "eslint src/**.ts",
     "lint-fix": "eslint src/**.ts --fix",
     "clean": "rimraf dist",
-    "test": "ts-node jasmine.ts"
+    "test": "jest"
   },
   "author": "hayouung",
   "license": "ISC",
   "devDependencies": {
-    "@types/jasmine": "^3.5.8",
+    "@types/jest": "^25.1.4",
     "@types/node": "^12.12.29",
     "@types/ws": "^7.2.3",
     "@typescript-eslint/eslint-plugin": "^2.22.0",
     "@typescript-eslint/parser": "^2.22.0",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
-    "jasmine": "^3.5.0",
+    "jest": "^25.1.0",
     "rimraf": "^3.0.2",
-    "ts-node": "^8.6.2",
+    "ts-jest": "^25.2.1",
     "typescript": "^3.8.3"
   },
   "dependencies": {
