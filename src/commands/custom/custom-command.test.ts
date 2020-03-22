@@ -2,38 +2,28 @@ import { handleCustomCommand, customCommands, CustomCommand } from "./custom-com
 import { Message, Client } from "discord.js";
 
 describe("custom command", () => {
-  const performSpy = jasmine.createSpy("iamtest.perform");
   const testCustomCommand: CustomCommand = {
     name: "iamtest",
-    perform: performSpy,
+    perform: jest.fn() as any,
     condition: (message: Message) => message.content === "test!"
   };
-
-  beforeEach(() => {
-    spyOn(customCommands, "getCommands").and.returnValue([testCustomCommand]);
-  });
-
-  afterEach(() => {
-    performSpy.calls.reset();
-  });
+  jest.spyOn(customCommands, "getCommands").mockReturnValue([testCustomCommand]);
 
   it("should perform command if matching condition found", () => {
     const message = {
       content: "test!"
     } as Message;
+    handleCustomCommand(message, {} as Client);
 
-    const client = {} as Client;
-    handleCustomCommand(message, client);
-    expect(performSpy).toHaveBeenCalled();
+    expect(testCustomCommand.perform).toHaveBeenCalled();
   });
 
   it("should not perform command if no matching condition found", () => {
     const message = {
       content: "test?"
     } as Message;
+    handleCustomCommand(message, {} as Client);
 
-    const client = {} as Client;
-    handleCustomCommand(message, client);
-    expect(performSpy).not.toHaveBeenCalled();
+    expect(testCustomCommand.perform).not.toHaveBeenCalled();
   });
 });

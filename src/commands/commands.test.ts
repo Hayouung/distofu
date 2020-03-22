@@ -23,34 +23,30 @@ describe("Commands class", () => {
   });
 
   describe("when adding a command", () => {
-    let added: boolean;
-
     it("should successfully add if new and return true", () => {
-      added = commands.addCommand(testCommand);
+      const added = commands.addCommand(testCommand);
       expect(commands.getCommands().length).toBe(3);
       expect(commands.getCommands()[2]).toBe(testCommand);
       expect(added).toBe(true);
     });
 
     it("should not add if duplicate and return false", () => {
-      added = commands.addCommand(initCommand);
+      const added = commands.addCommand(initCommand);
       expect(commands.getCommands().length).toBe(2);
       expect(added).toBe(false);
     });
   });
 
   describe("when deleting a command by name", () => {
-    let deleted: boolean;
-
     it("should delete if exists and return true", () => {
-      deleted = commands.deleteCommand("hi");
+      const deleted = commands.deleteCommand("hi");
       expect(commands.getCommands().length).toBe(1);
       expect(commands.getCommands()[0]).toBe(initCommand2);
       expect(deleted).toBe(true);
     });
 
     it("should not delete if doesn't exist and return false", () => {
-      deleted = commands.deleteCommand("idontexist");
+      const deleted = commands.deleteCommand("idontexist");
       expect(commands.getCommands().length).toBe(2);
       expect(deleted).toBe(false);
     });

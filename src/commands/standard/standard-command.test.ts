@@ -2,29 +2,20 @@ import { handleStandardCommand, standardCommands, StandardCommand } from "./stan
 import { Message, Client } from "discord.js";
 
 describe("standard command", () => {
-  const performSpy = jasmine.createSpy("iamtest.perform");
   const testStandardCommand: StandardCommand = {
     name: "iamtest",
-    perform: performSpy,
+    perform: jest.fn() as any,
     aliases: ["testiam"]
   };
-
-  beforeEach(() => {
-    spyOn(standardCommands, "getCommands").and.returnValue([testStandardCommand]);
-  });
-
-  afterEach(() => {
-    performSpy.calls.reset();
-  });
+  jest.spyOn(standardCommands, "getCommands").mockReturnValue([testStandardCommand]);
 
   it("should find command by name and perform", () => {
     const message = {
       content: "--iamtest"
     } as Message;
 
-    const client = {} as Client;
-    handleStandardCommand(message, client);
-    expect(performSpy).toHaveBeenCalled();
+    handleStandardCommand(message, {} as Client);
+    expect(testStandardCommand.perform).toHaveBeenCalled();
   });
 
   it("should find command by alias and perform", () => {
@@ -32,9 +23,8 @@ describe("standard command", () => {
       content: "--testiam"
     } as Message;
 
-    const client = {} as Client;
-    handleStandardCommand(message, client);
-    expect(performSpy).toHaveBeenCalled();
+    handleStandardCommand(message, {} as Client);
+    expect(testStandardCommand.perform).toHaveBeenCalled();
   });
 
   it("should not perform command if no command found", () => {
@@ -42,8 +32,7 @@ describe("standard command", () => {
       content: "--asdf"
     } as Message;
 
-    const client = {} as Client;
-    handleStandardCommand(message, client);
-    expect(performSpy).not.toHaveBeenCalled();
+    handleStandardCommand(message, {} as Client);
+    expect(testStandardCommand.perform).not.toHaveBeenCalled();
   });
 });

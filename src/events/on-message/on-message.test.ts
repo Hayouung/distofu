@@ -1,26 +1,21 @@
 import { onMessage } from "./on-message";
-import * as stdCmdObj from "../../commands/standard/standard-command";
-import * as custCmdObj from "../../commands/custom/custom-command";
 import { Message, Client } from "discord.js";
+import * as customCommand from "../../commands/custom/custom-command";
+import * as standardCommand from "../../commands/standard/standard-command";
+
+jest.mock("../../commands/custom/custom-command");
+jest.mock("../../commands/standard/standard-command");
 
 describe("on-message event", () => {
-  let stdCmdHandlerSpy: jasmine.Spy;
-  let customCmdHandlerSpy: jasmine.Spy;
-
-  beforeEach(() => {
-    stdCmdHandlerSpy = spyOn(stdCmdObj, "handleStandardCommand");
-    customCmdHandlerSpy = spyOn(custCmdObj, "handleCustomCommand");
-  });
-
   it("should call standard command handler if message starts with prefix", () => {
     onMessage({ content: "--hello test" } as Message, {} as Client);
-    expect(stdCmdHandlerSpy).toHaveBeenCalled();
-    expect(customCmdHandlerSpy).not.toHaveBeenCalled();
+    expect(standardCommand.handleStandardCommand).toHaveBeenCalled();
+    expect(customCommand.handleCustomCommand).not.toHaveBeenCalled();
   });
 
   it("should call custom command handler if message doesn't start with prefix", () => {
     onMessage({ content: "hello test" } as Message, {} as Client);
-    expect(stdCmdHandlerSpy).not.toHaveBeenCalled();
-    expect(customCmdHandlerSpy).toHaveBeenCalled();
+    expect(standardCommand.handleStandardCommand).not.toHaveBeenCalled();
+    expect(customCommand.handleCustomCommand).toHaveBeenCalled();
   });
 });

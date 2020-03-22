@@ -1,6 +1,8 @@
 import { whoa } from "./whoa";
-import { Message } from "discord.js";
+import { Message, Client } from "discord.js";
 import { CONFIG } from "../../../../config";
+
+CONFIG.ownerId = "123";
 
 describe("custom command whoa", () => {
   const message = {
@@ -13,16 +15,12 @@ describe("custom command whoa", () => {
     }
   } as Message;
 
-  beforeEach(() => {
-    CONFIG.ownerId = "123";
-  });
-
   it("should match condition if message author is owner and has 'WHOA!!' in content", () => {
-    expect(whoa.condition(message, {} as any)).toBe(true);
+    expect(whoa.condition(message, {} as Client)).toBe(true);
   });
 
   it("should send 'whoa' to message channel on perform", () => {
-    whoa.perform(message, {} as any);
+    whoa.perform(message, {} as Client);
     expect(message.channel.send).toHaveBeenCalledWith("whoa");
   });
 });

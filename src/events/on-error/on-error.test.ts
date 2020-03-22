@@ -1,14 +1,9 @@
 import { onError } from "./on-error";
 
 describe("on-error event", () => {
-  let consoleSpy: jasmine.Spy;
-
-  beforeEach(() => {
-    consoleSpy = spyOn(console, "error");
-    onError(new Error("message"));
-  });
-
   it("should log error in console", () => {
-    expect(consoleSpy).toHaveBeenCalledWith("Error message");
+    console.error = jest.fn();
+    onError(new Error("message"));
+    expect(console.error).toBeCalledWith("Error message");
   });
 });
