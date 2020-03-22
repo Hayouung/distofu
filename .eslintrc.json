@@ -23,5 +23,6 @@
   "rules": {
     "@typescript-eslint/no-use-before-define": ["error", "nofunc"],
     "@typescript-eslint/no-explicit-any": ["off"]
-  }
+  },
+  "ignorePatterns": ["jest.config.js", "start.js"]
 }
