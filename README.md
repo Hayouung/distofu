@@ -30,7 +30,6 @@ client.commands.set("hello", {
 We clearly need more than one way to say hello to the bot so let's now add aliases for the "!hello" command we just created.
 
 ```typescript
-// aliases is also a map
 client.aliases.set("hi", "hello");
 client.aliases.set("yo", "hello");
 ```
@@ -42,7 +41,7 @@ You can also add a trigger to make your bot complain when someone says pineapple
 Triggers are functions that are called when a message matches the trigger's condition which can be pretty much anything.
 
 ```typescript
-// triggers is also just a map - however the name isn't too important as long as it's unique and only serves a purpose for deleting.
+// the name of the trigger isn't too important as long as it's unique. it only serves a purpose for deleting
 client.triggers.set("pineapple is not bad on pizza", {
   condition: message => message.content.includes("pineapple pizza bad"), // condition the message much match
   execute: message => message.channel.send("how dare")
@@ -58,6 +57,7 @@ client.login("YOUR_DISCORD_TOKEN");
 The bot is ready and listening for commands/triggers when you see "ready!" printed in your console.
 
 ## Possible things to do
+- conditions and disable/enable for commands
 - support async commands and triggers
 - rich embeds for stylish bot messages
 - abstract other events? e.g. reactions, member leave, member join
