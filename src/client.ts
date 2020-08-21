@@ -1,13 +1,54 @@
-import { Client, Message } from "discord.js";
+import { Client, Message, ClientOptions } from "discord.js";
 import { onMessage } from "./events/on-message/on-message";
 import { onReady } from "./events/on-ready/on-ready";
 import { onError } from "./events/on-error/on-error";
+import { TofuConfig } from "./config";
+import { Command } from "./command/command";
+import { Trigger } from "./trigger/trigger";
 
-/**
- * The discord.js client object.
- */
-export const client = new Client();
+export class TofuClient extends Client {
+  /**
+   * Configuration to control Tofu's behaviour.
+   */
+  readonly tofuConfig: TofuConfig;
 
-client.on("message", (message: Message) => onMessage(message, client));
-client.on("ready", () => onReady());
-client.on("error", error => onError(error));
+  /**
+   * Map of commands that are triggered with a prefix.
+   */
+  readonly commands = new Map<string, Command>();
+
+  /**
+   * Map of aliases for commands.
+   */
+  readonly aliases = new Map<string, string>();
+
+  /**
+   * Map of triggers that are executed when a condition is met.
+   */
+  readonly triggers = new Map<string, Trigger>();
+
+  /**
+   * Optional function that is called when no matching command is found.
+   */
+  noMatchingCommandHandler?: NoMatchingCommandHandler;
+
+  constructor(tofuConfig: TofuConfig, options?: ClientOptions) {
+    super(options);
+    this.tofuConfig = tofuConfig;
+
+    this.on("message", (message: Message) => onMessage(message, this));
+    this.on("ready", () => onReady());
+    this.on("error", error => onError(error));
+  }
+
+  /**
+   * Registers a function to be called when no matching command is found.
+   * Can remove handler by calling this with undefined.
+   * @param handler function to register or undefined to remove handler.
+   */
+  registerNoMatchingCommandHandler(handler: NoMatchingCommandHandler) {
+    this.noMatchingCommandHandler = handler;
+  }
+}
+
+type NoMatchingCommandHandler = (message: Message, client: Client) => void;

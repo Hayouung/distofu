@@ -1,17 +1,18 @@
-import { Message, Client } from "discord.js";
-import { CONFIG } from "../../config";
-import { handleStandardCommand } from "../../commands/standard/standard-command";
-import { handleCustomCommand } from "../../commands/custom/custom-command";
+import { Message } from "discord.js";
+import { handleCommand } from "../../command/command";
+import { handleTrigger } from "../../trigger/trigger";
+import { TofuClient } from "../../client";
 
-export function onMessage(message: Message, client: Client): void {
-  if (isStandardCommand(message)) {
-    handleStandardCommand(message, client);
+export function onMessage(message: Message, client: TofuClient): void {
+  if (isCommand(message, client)) {
+    handleCommand(message, client);
   } else {
-    handleCustomCommand(message, client);
+    handleTrigger(message, client);
   }
 }
 
-function isStandardCommand(message: Message): boolean {
-  const trimmed = message.content.trim();
-  return trimmed.startsWith(CONFIG.prefix);
+function isCommand(message: Message, { tofuConfig }: TofuClient): boolean {
+  return message.content
+    .trim()
+    .startsWith(tofuConfig.prefix);
 }

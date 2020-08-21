@@ -17,13 +17,14 @@
   "parserOptions": {
     "ecmaVersion": 2019,
     "sourceType": "module",
-    "project": "./tsconfig/tsconfig.lint.json"
+    "project": "tsconfig.json"
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
     "@typescript-eslint/no-use-before-define": ["error", "nofunc"],
     "@typescript-eslint/no-explicit-any": ["off"],
-    "@typescript-eslint/unbound-method": ["off"]
+    "@typescript-eslint/unbound-method": ["off"],
+    "@typescript-eslint/explicit-function-return-type": ["off"]
   },
-  "ignorePatterns": ["jest.config.js", "start.js"]
+  "ignorePatterns": ["jest.config.js", "example/**/*", "*.spec.ts"]
 }

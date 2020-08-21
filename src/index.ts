@@ -1,4 +1,4 @@
-export { client } from "./client";
-export { CONFIG } from "./config";
-export { CustomCommand, customCommands } from "./commands/custom/custom-command";
-export { StandardCommand, standardCommands } from "./commands/standard/standard-command";
+export { TofuClient } from "./client";
+export { TofuConfig } from "./config";
+export { Command } from "./command/command";
+export { Trigger } from "./trigger/trigger";

@@ -1,5 +1,21 @@
 {
-  "extends": "./tsconfig/tsconfig.base.json",
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/**/*.test.ts"]
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "inlineSourceMap": true,
+    "declaration": true
+  },
+  "exclude": ["node_modules", "dist", "**/*spec.ts", "example"]
 }
