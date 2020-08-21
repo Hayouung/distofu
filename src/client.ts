@@ -1,14 +1,12 @@
 import { Client, Message, ClientOptions } from "discord.js";
-import { onMessage } from "./events/on-message/on-message";
-import { onReady } from "./events/on-ready/on-ready";
-import { onError } from "./events/on-error/on-error";
+import { onMessage, onError, onReady } from "./events";
 import { TofuConfig } from "./config";
-import { Command } from "./command/command";
+import { Command, NoMatchingCommandHandler } from "./command/command";
 import { Trigger } from "./trigger/trigger";
 
 export class TofuClient extends Client {
   /**
-   * Configuration to control Tofu's behaviour.
+   * Config to control certain behaviour.
    */
   readonly tofuConfig: TofuConfig;
 
@@ -50,5 +48,3 @@ export class TofuClient extends Client {
     this.noMatchingCommandHandler = handler;
   }
 }
-
-type NoMatchingCommandHandler = (message: Message, client: Client) => void;

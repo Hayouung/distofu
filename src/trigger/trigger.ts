@@ -10,7 +10,7 @@ export function handleTrigger(message: Message, client: TofuClient): void {
   for (const command of client.triggers.values()) {
     if (command.condition(message, client)) {
       command.execute(message, client);
-      if (!client.tofuConfig.executeMatchedTriggers) {
+      if (!client.tofuConfig.executeAllMatchedTriggers) {
         break;
       }
     }

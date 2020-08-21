@@ -5,6 +5,8 @@ export interface Command {
   execute(message: Message, client: TofuClient): void;
 }
 
+export type NoMatchingCommandHandler = (message: Message, client: TofuClient) => void;
+
 export function handleCommand(message: Message, client: TofuClient): void {
   const name = extractCommandName(message, client);
   const found = client.commands.get(name) ?? checkAliases(name, client);
