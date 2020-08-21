@@ -41,7 +41,7 @@ You can also add a trigger to make your bot complain when someone says pineapple
 Triggers are functions that are called when a message matches the trigger's condition which can be pretty much anything.
 
 ```typescript
-// the name of the trigger isn't too important as long as it's unique. it only serves a purpose for deleting
+// the name of the trigger isn't too important as long as it's unique
 client.triggers.set("pineapple is not bad on pizza", {
   condition: message => message.content.includes("pineapple pizza bad"), // condition the message much match
   execute: message => message.channel.send("how dare")
