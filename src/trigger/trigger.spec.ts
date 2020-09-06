@@ -23,7 +23,7 @@ describe("trigger", () => {
 
   it("should execute all triggers with matching condition if config for enabled", () => {
     const message = { content: "test!" } as Message;
-    handleTrigger(message, { ...client, tofuConfig: { executeMatchedTriggers: true } } as TofuClient);
+    handleTrigger(message, { ...client, tofuConfig: { executeAllMatchedTriggers: true } } as TofuClient);
 
     expect(execute).toHaveBeenCalled();
     expect(anotherExecute).toHaveBeenCalled();
